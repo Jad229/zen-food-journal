@@ -14,16 +14,37 @@
       <!-- form will go here -->
       <section class="entry__section">
         <h2>Add Food Entry</h2>
+        <form id="meal-form" action="/">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" />
+          </div>
+
+          <div>
+            <label for="calories">Calories:</label>
+            <input type="number" name="calories" id="calories" />
+          </div>
+
+          <div>
+            <label for="protein">Protein:</label>
+            <input type="number" name="protein" id="protein" />
+          </div>
+
+          <div>
+            <button id="meal-form-clear">Clear</button>
+            <button id="meal-form-add">Add Meal</button>
+          </div>
+        </form>
       </section>
       <!-- totals and numbers will go here -->
       <section class="totals__section">
         <h2>Today's Totals</h2>
-        <div class="totals__section--totals-list"></div>
+        <div class="totals__section--list"></div>
       </section>
       <!-- entries will go here -->
       <section class="log__section">
         <h2>Today's Meals</h2>
-        <div class="log__section--entries-list"></div>
+        <div id="food-log" class="log__section--list"></div>
       </section>
     </main>
     <script src="app.js"></script>
