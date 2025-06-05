@@ -4,5 +4,5 @@ A simple tracker for calories and protein intake
 
 ## Next Steps
 
-- [ ] Add form inputs
+- [x] Add form inputs
 - [ ] style form && buttons
