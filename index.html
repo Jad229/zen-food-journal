@@ -11,6 +11,20 @@
       <h1>Zen Food Journal</h1>
     </header>
     <main>
+      <!-- totals and numbers will go here -->
+      <section class="totals__section">
+        <h2>Today's Totals</h2>
+        <div id="stats" class="totals__section--list">
+          <div class="stat__card">
+            <p id="calories-stat" class="stat__card-total">0</p>
+            <p class="stat__card-text">Calories Consumed</p>
+          </div>
+          <div class="stat__card">
+            <p id="protein-stat" class="stat__card-total">0</p>
+            <p class="stat__card-text">Protein Consumed</p>
+          </div>
+        </div>
+      </section>
       <!-- form will go here -->
       <section class="entry__section">
         <h2>Add Food Entry</h2>
@@ -35,11 +49,6 @@
             <button id="meal-form-add">Add Meal</button>
           </div>
         </form>
-      </section>
-      <!-- totals and numbers will go here -->
-      <section class="totals__section">
-        <h2>Today's Totals</h2>
-        <div class="totals__section--list"></div>
       </section>
       <!-- entries will go here -->
       <section class="log__section">

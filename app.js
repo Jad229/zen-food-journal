@@ -10,12 +10,11 @@ function saveMeal() {
   // Create a meal object and add it to meals array
   const meal = {
     name: formData.get("name"),
-    calories: formData.get("calories"),
-    protein: formData.get("protein"),
+    calories: parseInt(formData.get("calories")),
+    protein: parseInt(formData.get("protein")),
   };
 
   mealEntries.push(meal);
-  console.log(mealEntries);
 }
 
 // function to display meal entries array in the food log section
@@ -32,6 +31,43 @@ function renderMealsLog() {
   });
 }
 
+function renderStats() {
+  // Grab elements to display stats
+  const stats = document.getElementById("stats");
+  const caloriesStat = document.getElementById("calories-stat");
+  const proteinStat = document.getElementById("protein-stat");
+
+  // Calculate the totals from meal entries
+  const caloricTotal = calculateCaloricTotal();
+  const proteinTotal = calculateProteinTotal();
+
+  // Update corresponding elements in stats div
+  caloriesStat.textContent = `${caloricTotal}`;
+  proteinStat.textContent = `${proteinTotal}g`;
+}
+
+// Function to calculate the total calories from all the meals in meals array
+function calculateCaloricTotal() {
+  let caloricTotal = 0;
+  mealEntries.forEach((meal) => {
+    caloricTotal += meal.calories;
+  });
+
+  console.log(caloricTotal);
+
+  return caloricTotal;
+}
+
+// Function to calculate the total protein from all the meals in meals array
+function calculateProteinTotal() {
+  let proteinTotal = 0;
+  mealEntries.forEach((meal) => {
+    proteinTotal += meal.protein;
+  });
+
+  return proteinTotal;
+}
+
 function createMealElement(meal) {
   // Create elements and then set their values and class
   const mealContainer = document.createElement("div");
@@ -39,13 +75,14 @@ function createMealElement(meal) {
   const mealCalories = document.createElement("p");
   const mealProtein = document.createElement("p");
 
-  mealName.textContent = `Name: ${meal.name}`;
-  mealCalories.textContent = `kcal: ${meal.calories}`;
-  mealProtein.textContent = `Protein: ${meal.protein}`;
+  mealName.textContent = meal.name;
+  mealCalories.textContent = `${meal.calories} cals`;
+  mealProtein.textContent = `protein ${meal.protein}g`;
 
-  mealName.classList.add("mealInfo");
-  mealCalories.classList.add("mealInfo");
-  mealProtein.classList.add("mealInfo");
+  mealContainer.classList.add("meal__card");
+  mealName.classList.add("mealInfo", "meal__card-name");
+  mealCalories.classList.add("mealInfo", "meal__card-calories");
+  mealProtein.classList.add("mealInfo", "meal__card-protein");
 
   // Append all the elements to meal container and return the element
   mealContainer.appendChild(mealName);
@@ -60,4 +97,5 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   saveMeal();
   renderMealsLog();
+  renderStats();
 });
