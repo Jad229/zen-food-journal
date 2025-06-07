@@ -6,3 +6,5 @@ A simple tracker for calories and protein intake
 
 - [x] Add form inputs
 - [ ] style form && buttons
+- [x] style log section and stat
+- [ ] add local storage functionality
